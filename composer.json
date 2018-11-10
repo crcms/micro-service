@@ -1,0 +1,78 @@
+{
+  "name": "crcms/microservice",
+  "description": "The CrCms Microservice Project.",
+  "keywords": [
+    "crcms",
+    "micro-service",
+    "rpc",
+    "microservice",
+    "swoole"
+  ],
+  "type": "project",
+  "require": {
+    "php": "^7.2.4",
+    "crcms/microservice-framework": "*@dev"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.4"
+  },
+  "autoload": {
+    "classmap": [
+    ],
+    "psr-4": {
+      "CrCms\\App\\": "app/",
+      "CrCms\\Extensions\\": "extensions/",
+      "CrCms\\Modules\\": "modules/",
+      "CrCms\\Microservice\\": "ext-extension/micro-service-framework"
+    },
+    "files": [
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CrCms\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "dont-discover": [
+      ]
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-install-cmd": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "@php bin/crcms key:generate --ansi"
+    ],
+    "post-autoload-dump": [
+      "@php bin/artisan make:directory storage",
+      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "@php bin/crcms package:discover --ansi"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.2.4"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.laravel-china.org"
+    },
+    "0":{
+      "type":"path",
+      "url":"./ext-extension/micro-service-framework"
+    }
+  }
+}
