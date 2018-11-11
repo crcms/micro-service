@@ -12,8 +12,12 @@
 //    return 123;
 //});
 $router = app('router');
-$router->middleware([\CrCms\Foundation\MicroService\Middleware\HashMiddleware::class])->namespace('\CrCms\App')->group(function() use ($router){
-    $router->register('def','TestController@getIndex');
+//$router->middleware([\CrCms\Foundation\MicroService\Middleware\HashMiddleware::class])->namespace('\CrCms\App')->group(function() use ($router){
+//    $router->register('def','TestController@getIndex');
+//});
+
+$router->register('def',function(){
+    return ['x'=>123];
 });
 
 //$router->middleware([])->namespace('\CrCms\App2')->group(function() use ($router){
