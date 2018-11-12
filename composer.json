@@ -50,7 +50,8 @@
       "@php bin/crcms key:generate --ansi"
     ],
     "post-autoload-dump": [
-
+      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "@php bin/crcms package:discover --ansi"
     ]
   },
   "config": {
@@ -70,7 +71,7 @@
     },
     "0":{
       "type":"path",
-      "url":"./ext-extension/micro-service-framework"
+      "url":"./ext-extension/microservice-framework"
     }
   }
 }

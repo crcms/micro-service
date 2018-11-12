@@ -1,6 +1,7 @@
 <?php
 
 namespace CrCms\App;
+use Illuminate\Http\JsonResponse;
 
 /**
  * Class TestController
@@ -10,7 +11,8 @@ class TestController
 {
 
     public function getIndex(Test $test) {
-        return $test->x();
+        //return $test->x();
+        return new JsonResponse(['z'=>1]);
     }
 
 }

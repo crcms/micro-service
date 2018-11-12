@@ -16,10 +16,22 @@ $router = app('router');
 //    $router->register('def','TestController@getIndex');
 //});
 
-$router->register('def',function(){
-    return ['x'=>123];
-});
+//$router->register('def',function(){
+//    return ['x'=>123];
+//});
+//$router->single('defs','\CrCms\App\TestController@getIndex');
 
+$router = app('router');
+$router->register('z',function(){
+    return ['z'=>'z'];
+});
+$router->middleware([])->namespace('\CrCms')->group(function() use ($router){
+
+    $router->register('def','App\TestController@getIndex');
+    $router->namespace('App')->group(function() use ($router){
+        $router->middleware([])->register('all','Test2Controller');
+    });
+});
 //$router->middleware([])->namespace('\CrCms\App2')->group(function() use ($router){
 //    $router->register('abc',function(){
 //        return 'xyz';
