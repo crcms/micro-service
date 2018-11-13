@@ -11,7 +11,9 @@
   "type": "project",
   "require": {
     "php": "^7.2.4",
-    "crcms/microservice-framework": "*@dev"
+    "crcms/microservice-framework": "dev-master",
+    "crcms/swoole-server": "dev-master",
+    "crcms/foundation": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.4"
@@ -22,8 +24,7 @@
     "psr-4": {
       "CrCms\\App\\": "app/",
       "CrCms\\Extensions\\": "extensions/",
-      "CrCms\\Modules\\": "modules/",
-      "CrCms\\Microservice\\": "ext-extension/micro-service-framework"
+      "CrCms\\Modules\\": "modules/"
     },
     "files": [
     ]
@@ -41,16 +42,19 @@
   },
   "scripts": {
     "post-root-package-install": [
+      "@php bin/crcms initialize",
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ],
     "post-install-cmd": [
+      "@php bin/crcms initialize",
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ],
     "post-create-project-cmd": [
+      "@php bin/crcms initialize",
       "@php bin/crcms key:generate --ansi"
     ],
     "post-autoload-dump": [
-      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "CrCms\\Microservice\\Foundation\\ComposerScripts::postAutoloadDump",
       "@php bin/crcms package:discover --ansi"
     ]
   },
@@ -68,10 +72,6 @@
     "packagist": {
       "type": "composer",
       "url": "https://packagist.laravel-china.org"
-    },
-    "0":{
-      "type":"path",
-      "url":"./ext-extension/microservice-framework"
     }
   }
 }
