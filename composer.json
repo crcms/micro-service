@@ -11,7 +11,7 @@
   "type": "project",
   "require": {
     "php": "^7.2.4",
-    "crcms/microservice-framework": "dev-master",
+    "crcms/microservice-framework": "0.x-dev",
     "crcms/swoole-server": "dev-master",
     "crcms/foundation": "dev-master"
   },
