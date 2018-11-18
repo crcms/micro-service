@@ -16,6 +16,7 @@
     "crcms/microservice-framework": "0.x-dev"
   },
   "require-dev": {
+    "laravel/tinker": "^1.0",
     "phpunit/phpunit": "^7.4"
   },
   "autoload": {
@@ -32,12 +33,6 @@
   "autoload-dev": {
     "psr-4": {
       "CrCms\\Tests\\": "tests/"
-    }
-  },
-  "extra": {
-    "laravel": {
-      "dont-discover": [
-      ]
     }
   },
   "scripts": {
