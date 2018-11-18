@@ -3,9 +3,10 @@
   "description": "The CrCms Microservice Project.",
   "keywords": [
     "crcms",
-    "micro-service",
-    "rpc",
     "microservice",
+    "microservice-framework",
+    "rpc",
+    "laravel",
     "swoole"
   ],
   "type": "project",
