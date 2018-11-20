@@ -28,8 +28,17 @@ RUN apt-get update -yqq \
     && apt-get install -y php7.2-mbstring \
     && apt-get install -y php7.2-curl \
     && apt-get install -y php7.2-zip \
+    && apt-get install -y php7.2-gd \
     && apt-get install -y composer
 
+# npm
+RUN apt-get install curl \
+    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && apt-get install -y nodejs \
+    && apt-get install -y build-essential
+
+# clean
+RUN apt-get purge -y curl
 
 #### set timezone #############################
 ARG ARG_TIMEZONE=UTC
