@@ -24,6 +24,10 @@ RUN apt-get update -yqq \
     && pecl channel-update pecl.php.net
 
 #### php pecl #############################
+# base install
+#pdo_mysql
+RUN docker-php-ext-install pdo_mysql
+
 # mongodb
 ARG ARG_PHP_FPM_INSTALL_MONGODB=false
 RUN if [ ${ARG_PHP_FPM_INSTALL_MONGODB} = true ]; then \
