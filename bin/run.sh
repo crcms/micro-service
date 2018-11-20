@@ -1,3 +1,4 @@
 #!/bin/bash
 
-docker-compose -f ../docker-compose.yml exec workspace $@
+path=$(cd "$(dirname "${BASH_SOURCE-$0}")"; pwd)
+docker-compose -f "${path}/../docker-compose.yml" exec workspace $@
