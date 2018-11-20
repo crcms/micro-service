@@ -25,6 +25,9 @@ RUN apt-get update -yqq \
     # php
 #    && sh -c '/bin/echo -e "6\n69" | apt-get install -yqq php7.2-dev' \
     && apt-get install -y php7.2-dev \
+    && apt-get install -y php7.2-mbstring \
+    && apt-get install -y php7.2-curl \
+    && apt-get install -y php7.2-zip \
     && apt-get install -y composer
 
 
