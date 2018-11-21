@@ -25,8 +25,9 @@ RUN apt-get update -yqq \
 
 #### php pecl #############################
 # base install
-#pdo_mysql
-RUN docker-php-ext-install pdo_mysql
+#pdo_mysql,opcache
+RUN docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install opcache
 
 # mongodb
 ARG ARG_PHP_FPM_INSTALL_MONGODB=false
