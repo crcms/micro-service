@@ -31,7 +31,15 @@ services:
     ports:
       - "${WORKSPACE_SWOOLE_PORT}:28080"
     tty: true
-
+  consul:
+    build:
+      context: ${LOCAL_DOCKER_PATH}/consul
+    network_mode: host
+    volumes:
+      - ${LOCAL_DOCKER_PATH}/consul/run.sh:/consul/run.sh
+      - ${LOCAL_DOCKER_PATH}/consul/config:/consul/config
+      - ${LOCAL_CODE_PATH}/storage/consul:/consul/data
+    command: /consul/run.sh
   nginx:
     build:
       context: ${LOCAL_DOCKER_PATH}/nginx
