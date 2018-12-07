@@ -6,20 +6,20 @@
   "server": true,
   "bootstrap_expect": 1,
   "ui": true,
-  "bind_addr": "",
+  "bind_addr": "127.0.0.1",
   "addresses": {
-    "http": "127.0.0.1"
+    "http": "0.0.0.0"
   },
   "ports": {
     "http": 8500
   },
   "checks": [
     {
-      "id": "testing",
-      "name": "testing tcp",
+      "id": "testing_tcp",
+      "name": "tcp testing",
       "tcp": "127.0.0.1:28080",
       "interval": "10s",
-      "timeout": "1s"
+      "timeout": "2s"
     }
   ]
 }
