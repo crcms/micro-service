@@ -47,6 +47,8 @@ services:
       - ${LOCAL_DOCKER_PATH}/consul/config:/consul/config
       - ${LOCAL_CODE_PATH}/storage/consul:/consul/data
     command: /consul/run.sh
+    ports:
+      - "127.0.0.1:8500:8500"
     networks:
       - frontend
       - backend
