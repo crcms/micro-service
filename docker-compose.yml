@@ -21,6 +21,7 @@ services:
         - ARG_APP_RUN_GROUP=${APP_RUN_GROUP}
         - ARG_TIMEZONE=${TIMEZONE}
     environment:
+      - RUN_ENV=${RUN_ENV}
       - CONTAINER_CODE_PATH=${CONTAINER_CODE_PATH}
       - CONTAINER_DOCKER_PATH=${CONTAINER_DOCKER_PATH}
       - APP_RUN_PUID=${APP_RUN_PUID}
@@ -42,6 +43,8 @@ services:
   consul:
     build:
       context: ${LOCAL_DOCKER_PATH}/consul
+    environment:
+      - RUN_ENV=${RUN_ENV}
     volumes:
       - ${LOCAL_DOCKER_PATH}/consul/run.sh:/consul/run.sh
       - ${LOCAL_DOCKER_PATH}/consul/config:/consul/config
@@ -63,6 +66,7 @@ services:
         - ARG_APP_RUN_GROUP=${APP_RUN_GROUP}
         - ARG_TIMEZONE=${TIMEZONE}
     environment:
+      - RUN_ENV=${RUN_ENV}
       - CONTAINER_CODE_PATH=${CONTAINER_CODE_PATH}
       - CONTAINER_DOCKER_PATH=${CONTAINER_DOCKER_PATH}
       - APP_RUN_PUID=${APP_RUN_PUID}
@@ -93,7 +97,9 @@ services:
         - ARG_PHP_FPM_INSTALL_MONGODB=${PHP_FPM_INSTALL_MONGODB}
         - ARG_PHP_FPM_INSTALL_REDIS=${PHP_FPM_INSTALL_REDIS}
         - ARG_TIMEZONE=${TIMEZONE}
+        - RUN_ENV=${RUN_ENV}
     environment:
+      - RUN_ENV=${RUN_ENV}
       - CONTAINER_CODE_PATH=${CONTAINER_CODE_PATH}
       - CONTAINER_DOCKER_PATH=${CONTAINER_DOCKER_PATH}
       - APP_RUN_PUID=${APP_RUN_PUID}

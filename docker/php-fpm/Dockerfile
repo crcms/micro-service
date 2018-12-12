@@ -44,8 +44,9 @@ RUN if [ ${ARG_PHP_FPM_INSTALL_REDIS} = true ]; then \
 ;fi
 
 # copy php.ini
+ARG RUN_ENV=production
 ARG ARG_PHP_CONFIG_PATH=/usr/local/etc/php
-ARG ARG_LOCAL_PHP_CONFIG_PATH=./conf/php.ini
+ARG ARG_LOCAL_PHP_CONFIG_PATH=./config-${RUN_ENV:-production}/php.ini
 COPY ${ARG_LOCAL_PHP_CONFIG_PATH} ${ARG_PHP_CONFIG_PATH}
 
 

@@ -2,8 +2,13 @@
 
 chown ${APP_RUN_PUID}:${APP_RUN_PGID} -R ${CONTAINER_CODE_PATH}
 
-PHP_FPM_CONF_PATH="${CONTAINER_DOCKER_PATH}/php-fpm/conf"
-PHP_FPM_RUN_CONF_PATH="${CONTAINER_DOCKER_PATH}/php-fpm/run-conf"
+if [[ "${RUN_ENV}" = 'production' || "${RUN_ENV}" = "" ]]; then
+    PHP_FPM_CONF_PATH="${CONTAINER_DOCKER_PATH}/php-fpm/config-production"
+else
+    PHP_FPM_CONF_PATH="${CONTAINER_DOCKER_PATH}/php-fpm/config-${RUN_ENV}"
+fi
+
+PHP_FPM_RUN_CONF_PATH="${CONTAINER_DOCKER_PATH}/php-fpm/run-config"
 
 # clean run config
 rm -rf ${PHP_FPM_RUN_CONF_PATH}
