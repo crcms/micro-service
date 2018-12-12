@@ -1,5 +1,5 @@
 *
+!config/config-production
 !Dockerfile
 !run.sh
-!nginx-production.conf
 !.gitignore
