@@ -3,6 +3,8 @@ FROM ubuntu:latest
 
 MAINTAINER simon
 
+#### silent installation #############################
+ARG DEBIAN_FRONTEND=noninteractive
 
 #### user and group #############################
 ARG ARG_APP_RUN_PUID=1000
@@ -17,9 +19,7 @@ RUN groupadd -g ${ARG_APP_RUN_PGID} ${ARG_APP_RUN_GROUP} && \
 #### software #############################
 RUN apt-get update -yqq \
     && apt-get install -y apt-utils \
-    && apt-get install -y tzdata \
     && apt-get install -y cron \
-    && apt-get install -y vim \
     # supervisor
     && apt-get install -y supervisor \
     # php
@@ -41,9 +41,11 @@ RUN apt-get install curl \
 # clean
 RUN apt-get purge -y curl
 
+
 #### set timezone #############################
 ARG ARG_TIMEZONE=UTC
-RUN ln -snf /usr/share/zoneinfo/${ARG_TIMEZONE} /etc/localtime && echo ${ARG_TIMEZONE} > /etc/timezone
+RUN apt-get install -y tzdata \
+    && ln -snf /usr/share/zoneinfo/${ARG_TIMEZONE} /etc/localtime && echo ${ARG_TIMEZONE} > /etc/timezone
 
 
 #### php pecl #############################
