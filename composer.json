@@ -13,7 +13,7 @@
   "require": {
     "php": "^7.2.4",
     "crcms/repository": "^2.1",
-    "crcms/microservice-framework": "0.x-dev"
+    "crcms/microservice-framework": "dev-master"
   },
   "require-dev": {
     "laravel/tinker": "^1.0",
