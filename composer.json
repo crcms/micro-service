@@ -23,7 +23,6 @@
     "classmap": [
     ],
     "psr-4": {
-      "CrCms\\App\\": "app/",
       "CrCms\\Extensions\\": "extensions/",
       "CrCms\\Modules\\": "modules/"
     },
@@ -62,11 +61,5 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true,
-  "repositories": {
-    "packagist": {
-      "type": "composer",
-      "url": "https://packagist.laravel-china.org"
-    }
-  }
+  "prefer-stable": true
 }
